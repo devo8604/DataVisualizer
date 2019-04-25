@@ -14,7 +14,7 @@ for x in range(100):
     randDate += (timedelta(days=1))
     deviationCalc = 100 * (abs((randResult - CONTROL)) / CONTROL)
 
-    # Create the Datapoint object and appends it to the dict
+    # Create the Datapoint "object" and appends it to the dict
     dataDict.update({"Build" + str(x): {"Result": randResult,
                                         "Date": datetime.strftime(randDate, '%Y-%m-%d'),
                                         "PercentDeviation": deviationCalc}})

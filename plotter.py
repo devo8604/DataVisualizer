@@ -1,11 +1,10 @@
 import matplotlib
 import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
 from datetime import datetime
 import json
 
+# Variable List
 dataDict = {}
-
 resultArr = []
 deviationArr = []
 dateArr = []
