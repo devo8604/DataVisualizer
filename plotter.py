@@ -20,11 +20,6 @@ for x in range(len(dataDict)):
     dateArr.append(datetime.strptime(dataDict["Build"+str(x)]["Date"], '%Y-%m-%d'))
     deviationArr.append(dataDict["Build"+str(x)]["PercentDeviation"])
 
-finalDateArr = []
-for x in dateArr:
-    print(x)
-    finalDateArr.append(datetime.strftime(x, '%Y-%m-%d'))
-
 #Dont need this anymore, set the mem free...
 dataDict.clear()
 
