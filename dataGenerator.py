@@ -1,17 +1,17 @@
 # Python Modules
 import random
 import json
-from datetime import timedelta, datetime
+from datetime import timedelta, datetime, date
 
 """Control number that the deviation percentage is
 calculated from and empty dict Var"""
 CONTROL = 10
 dataDict = {}
-randDate = (datetime.date(datetime.now()) - (timedelta(days=100)))
+randDate = (date.today() - (timedelta(days=100)))
 
 for x in range(100):
     randResult = random.randint(5, 15)
-    randDate += (timedelta(days=x)) 
+    randDate += (timedelta(days=1))
     deviationCalc = 100 * (abs((randResult - CONTROL)) / CONTROL)
 
     # Create the Datapoint object and appends it to the dict

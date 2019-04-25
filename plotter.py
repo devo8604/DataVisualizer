@@ -1,3 +1,4 @@
+import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from datetime import datetime
@@ -27,12 +28,13 @@ for x in range(len(dataDict)):
 # Dont need this anymore, set the mem free...
 dataDict.clear()
 
-convertedDates = mdates.datestr2num(dateArr)
-plt.plot(deviationArr, dateArr, 'r.')
-
+# Plot Builder
+plt.plot(dateArr, deviationArr, 'r.')
 plt.title("Deviation from actual expected value")
-plt.xlabel("Percent Deviation")
-plt.ylabel("Build Date")
+plt.ylabel("Percent Deviation")
+plt.xlabel("Build Date")
+plt.xticks(rotation=45)
+plt.tight_layout()
 plt.savefig('plot.png')
 plt.show()
 
