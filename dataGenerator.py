@@ -11,8 +11,7 @@ dbTable = "dataPlot"
 
 
 def dataGen(rData):
-    """Control number that the deviation percentage is
-    calculated from and empty dict Var"""
+    """Generates Random Data"""
     CONTROL = 10
     randDate = (date.today() - (timedelta(days=100)))
 
@@ -96,7 +95,7 @@ def retrieveData(resultsDict):
                                           "Date": row[2],
                                           "PercentDeviation": row[3]}})
         row = cursor.fetchone()
-        
+
     db.close()
 
 
