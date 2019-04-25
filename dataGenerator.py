@@ -52,7 +52,7 @@ def createDbTable():
     cursor = db.cursor()
     cursor.execute("DROP TABLE IF EXISTS testdata")
     cursor.execute(testDataTable)
-
+    db.commit()
     db.close()
 
 
@@ -92,11 +92,12 @@ def retrieveData(resultsDict):
     row = cursor.fetchone()
 
     while row is not None:
-        print(row)
         resultsDict.update({str(row[0]): {"Result": row[1],
                                           "Date": row[2],
                                           "PercentDeviation": row[3]}})
         row = cursor.fetchone()
+        
+    db.close()
 
 
 def main():
