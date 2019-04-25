@@ -1,13 +1,23 @@
+# =============================================================================
+#
+# dataGenerator.py is used to generate a random data set to be stored as JSON
+# or in a DB.
+#
+# =============================================================================
+
 # Python Modules
 import random
 import json
 from datetime import timedelta, datetime, date
 import pymysql
 
+# Global Variables for DB access
 dbHost = "localhost"
 dbUSer = "dsmith"
 dbUserPass = "QWer!@34"
 dbTable = "dataPlot"
+
+# =============================================================================
 
 
 def dataGen(rData):
@@ -15,6 +25,7 @@ def dataGen(rData):
     CONTROL = 10
     randDate = (date.today() - (timedelta(days=100)))
 
+    # Generates 100 items
     for x in range(100):
         randResult = random.randint(5, 15)
         randDate += (timedelta(days=1))
@@ -25,12 +36,19 @@ def dataGen(rData):
                                          "Date": datetime.strftime(randDate, '%Y%m%d'),
                                          "PercentDeviation": deviationCalc}})
 
+# =============================================================================
+
 
 def dataToJson(rData):
     """Sends the data to a JSON file"""
-    # Outputs objects to dataPoints.json file
-    with open("dataPoints.json", "w") as outfile:
-        json.dump(rData, outfile, indent=4)
+    try:
+        with open("dataPoints.json", "w") as outfile:
+            json.dump(rData, outfile, indent=4)
+    except IOError as e:
+        print(e)
+        exit(1)
+
+# =============================================================================
 
 
 def createDbTable():
@@ -46,21 +64,29 @@ def createDbTable():
         build_date TEXT,
         percent_deviation FLOAT NOT NULL,
         PRIMARY KEY ( id ) )"""
+    try:
+        db = pymysql.connect(dbHost, dbUSer, dbUserPass, dbTable)
+    except:
+        print("Did you remember to start the DB service?")
+    else:
+        cursor = db.cursor()
+        cursor.execute("DROP TABLE IF EXISTS testdata")
+        cursor.execute(testDataTable)
+        db.commit()
+        db.close()
 
-    db = pymysql.connect(dbHost, dbUSer, dbUserPass, dbTable)
-    cursor = db.cursor()
-    cursor.execute("DROP TABLE IF EXISTS testdata")
-    cursor.execute(testDataTable)
-    db.commit()
-    db.close()
+# =============================================================================
 
 
 def insertTableData(rData):
     """Inserts data into the testData table"""
 
-    db = pymysql.connect(dbHost, dbUSer, dbUserPass, dbTable)
-    cursor = db.cursor()
+    try:
+        db = pymysql.connect(dbHost, dbUSer, dbUserPass, dbTable)
+    except:
+        print("Did you remember to start the DB service?")
 
+        cursor = db.cursor()
     for x in range(len(rData)):
         try:
             cursor.execute("""INSERT INTO testdata (result,
@@ -81,6 +107,8 @@ def insertTableData(rData):
 
     db.close()
 
+# =============================================================================
+
 
 def retrieveData(resultsDict):
     """Retrive all of the data from the table"""
@@ -98,6 +126,8 @@ def retrieveData(resultsDict):
 
     db.close()
 
+# =============================================================================
+
 
 def main():
     dataDict = {}
@@ -108,6 +138,8 @@ def main():
     insertTableData(dataDict)
     retrieveData(dataDict)
     print(dataDict)
+
+# =============================================================================
 
 
 if __name__ == '__main__':

@@ -1,3 +1,10 @@
+# =============================================================================
+#
+# plotter.py is used to bring in JSON data from DB data and plot it using
+# matplotlib.
+#
+# =============================================================================
+
 import matplotlib
 import matplotlib.pyplot as plt
 from datetime import datetime
@@ -6,11 +13,13 @@ import json
 # Custom Modules
 import dataGenerator
 
-# Variable List
+# Global Variable List
 dataDict = {}
 resultArr = []
 deviationArr = []
 dateArr = []
+
+# =============================================================================
 
 
 def getJsonData():
@@ -33,6 +42,8 @@ def getJsonData():
     # Dont need this anymore, set the mem free...
     dataDict.clear()
 
+# =============================================================================
+
 
 def getDataDb():
     """Calls the dataGenerator Module to get data from DB"""
@@ -45,6 +56,8 @@ def getDataDb():
         dateArr.append(datetime.strptime(
             dataDict[str(x+1)]["Date"], '%Y%m%d'))
         deviationArr.append(dataDict[str(x+1)]["PercentDeviation"])
+
+# =============================================================================
 
 
 def plotBuilder():
@@ -59,10 +72,14 @@ def plotBuilder():
     plt.savefig('plot.png')
     plt.show()
 
+# =============================================================================
+
 
 def main():
     getDataDb()
     plotBuilder()
+
+# =============================================================================
 
 
 if __name__ == '__main__':
