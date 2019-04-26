@@ -7,6 +7,7 @@
 
 import matplotlib
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 from datetime import datetime
 import json
 
@@ -22,7 +23,7 @@ dateArr = []
 # =============================================================================
 
 
-def getJsonData():
+def getDataJson():
     """Read the JSON data into dataDict"""
     try:
         with open('dataPoints.json', 'r') as json_file:
@@ -63,12 +64,21 @@ def getDataDb():
 def plotBuilder():
     """Builds the plot"""
     # Plot Builder
+    days = mdates.DayLocator()
+    months = mdates.MonthLocator()
+    timeFmt = mdates.DateFormatter('%b-%y')
+    fig, ax = plt.subplots()
+
     plt.plot(dateArr, deviationArr, 'r.')
-    plt.title("Deviation from actual expected value")
-    plt.ylabel("Percent Deviation")
-    plt.xlabel("Build Date")
-    plt.xticks(rotation=45)
+    plt.title("Deviation from actual expected value per build", fontsize=15)
+    plt.ylabel("Percent Deviation", fontsize=15)
+    plt.xlabel("Build Date", fontsize=15)
     plt.tight_layout()
+
+    ax.xaxis.set_major_locator(months)
+    ax.xaxis.set_major_formatter(timeFmt)
+    ax.xaxis.set_minor_locator(days)
+
     plt.savefig('plot.png')
     plt.show()
 
@@ -76,7 +86,7 @@ def plotBuilder():
 
 
 def main():
-    getDataDb()
+    getDataJson()
     plotBuilder()
 
 # =============================================================================
