@@ -58,7 +58,8 @@ def getDataDb():
     except IOError as e:
         print(e)
     else:
-        dataGenerator.retrieveData(dataDict, dbHost, dbUser, dbUserPass, dbTable)
+        dataGenerator.retrieveData(
+            dataDict, dbHost, dbUser, dbUserPass, dbTable)
 
     # Iterates through dict and assigns the elements to the proper array for plot
         for x in range(len(dataDict)):
@@ -96,18 +97,8 @@ def plotBuilder():
 
 
 def main():
-    try:
-        with open('dbconfig.json') as config:
-            data = json.load(config)
-            dbHost = data["dbHost"]
-            dbUser = data["dbUser"]
-            dbUserPass = data["dbUserPass"]
-            dbTable = data["dbTable"]
-    except IOError as e:
-        print(e)
-    else:
-        getDataJson()
-        plotBuilder()
+    getDataJson()
+    plotBuilder()
 
 # =============================================================================
 
