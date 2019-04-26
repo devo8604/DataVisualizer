@@ -48,15 +48,25 @@ def getDataJson():
 
 def getDataDb():
     """Calls the dataGenerator Module to get data from DB"""
-    dataGenerator.retrieveData(dataDict)
+    try:
+        with open('dbconfig.json') as config:
+            data = json.load(config)
+            dbHost = data["dbHost"]
+            dbUser = data["dbUser"]
+            dbUserPass = data["dbUserPass"]
+            dbTable = data["dbTable"]
+    except IOError as e:
+        print(e)
+    else:
+        dataGenerator.retrieveData(dataDict, dbHost, dbUser, dbUserPass, dbTable)
 
     # Iterates through dict and assigns the elements to the proper array for plot
-    for x in range(len(dataDict)):
-        resultArr.append(dataDict[str(x+1)]["Result"])
-        # Must convert the date from string back to date
-        dateArr.append(datetime.strptime(
-            dataDict[str(x+1)]["Date"], '%Y%m%d'))
-        deviationArr.append(dataDict[str(x+1)]["PercentDeviation"])
+        for x in range(len(dataDict)):
+            resultArr.append(dataDict[str(x+1)]["Result"])
+            # Must convert the date from string back to date
+            dateArr.append(datetime.strptime(
+                dataDict[str(x+1)]["Date"], '%Y%m%d'))
+            deviationArr.append(dataDict[str(x+1)]["PercentDeviation"])
 
 # =============================================================================
 
@@ -86,8 +96,18 @@ def plotBuilder():
 
 
 def main():
-    getDataJson()
-    plotBuilder()
+    try:
+        with open('dbconfig.json') as config:
+            data = json.load(config)
+            dbHost = data["dbHost"]
+            dbUser = data["dbUser"]
+            dbUserPass = data["dbUserPass"]
+            dbTable = data["dbTable"]
+    except IOError as e:
+        print(e)
+    else:
+        getDataJson()
+        plotBuilder()
 
 # =============================================================================
 
