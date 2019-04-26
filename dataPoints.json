@@ -1,23 +1,23 @@
 {
     "Build0": {
-        "Result": 13,
+        "Result": 9,
         "Date": "20190116",
-        "PercentDeviation": 30.0
+        "PercentDeviation": 10.0
     },
     "Build1": {
-        "Result": 14,
+        "Result": 9,
         "Date": "20190117",
-        "PercentDeviation": 40.0
+        "PercentDeviation": 10.0
     },
     "Build2": {
-        "Result": 15,
+        "Result": 7,
         "Date": "20190118",
-        "PercentDeviation": 50.0
+        "PercentDeviation": 30.0
     },
     "Build3": {
-        "Result": 14,
+        "Result": 9,
         "Date": "20190119",
-        "PercentDeviation": 40.0
+        "PercentDeviation": 10.0
     },
     "Build4": {
         "Result": 15,
@@ -30,9 +30,9 @@
         "PercentDeviation": 10.0
     },
     "Build6": {
-        "Result": 11,
+        "Result": 15,
         "Date": "20190122",
-        "PercentDeviation": 10.0
+        "PercentDeviation": 50.0
     },
     "Build7": {
         "Result": 8,
@@ -40,24 +40,24 @@
         "PercentDeviation": 20.0
     },
     "Build8": {
-        "Result": 7,
+        "Result": 5,
         "Date": "20190124",
-        "PercentDeviation": 30.0
+        "PercentDeviation": 50.0
     },
     "Build9": {
-        "Result": 7,
+        "Result": 15,
         "Date": "20190125",
-        "PercentDeviation": 30.0
+        "PercentDeviation": 50.0
     },
     "Build10": {
-        "Result": 6,
+        "Result": 11,
         "Date": "20190126",
-        "PercentDeviation": 40.0
+        "PercentDeviation": 10.0
     },
     "Build11": {
-        "Result": 9,
+        "Result": 10,
         "Date": "20190127",
-        "PercentDeviation": 10.0
+        "PercentDeviation": 0.0
     },
     "Build12": {
         "Result": 14,
@@ -65,94 +65,94 @@
         "PercentDeviation": 40.0
     },
     "Build13": {
-        "Result": 5,
-        "Date": "20190129",
-        "PercentDeviation": 50.0
-    },
-    "Build14": {
-        "Result": 14,
-        "Date": "20190130",
-        "PercentDeviation": 40.0
-    },
-    "Build15": {
-        "Result": 5,
-        "Date": "20190131",
-        "PercentDeviation": 50.0
-    },
-    "Build16": {
         "Result": 12,
-        "Date": "20190201",
+        "Date": "20190129",
         "PercentDeviation": 20.0
     },
-    "Build17": {
-        "Result": 6,
-        "Date": "20190202",
-        "PercentDeviation": 40.0
-    },
-    "Build18": {
+    "Build14": {
         "Result": 15,
-        "Date": "20190203",
+        "Date": "20190130",
         "PercentDeviation": 50.0
     },
+    "Build15": {
+        "Result": 7,
+        "Date": "20190131",
+        "PercentDeviation": 30.0
+    },
+    "Build16": {
+        "Result": 13,
+        "Date": "20190201",
+        "PercentDeviation": 30.0
+    },
+    "Build17": {
+        "Result": 7,
+        "Date": "20190202",
+        "PercentDeviation": 30.0
+    },
+    "Build18": {
+        "Result": 7,
+        "Date": "20190203",
+        "PercentDeviation": 30.0
+    },
     "Build19": {
-        "Result": 6,
+        "Result": 14,
         "Date": "20190204",
         "PercentDeviation": 40.0
     },
     "Build20": {
-        "Result": 11,
-        "Date": "20190205",
-        "PercentDeviation": 10.0
-    },
-    "Build21": {
-        "Result": 10,
-        "Date": "20190206",
-        "PercentDeviation": 0.0
-    },
-    "Build22": {
-        "Result": 15,
-        "Date": "20190207",
-        "PercentDeviation": 50.0
-    },
-    "Build23": {
-        "Result": 6,
-        "Date": "20190208",
-        "PercentDeviation": 40.0
-    },
-    "Build24": {
-        "Result": 15,
-        "Date": "20190209",
-        "PercentDeviation": 50.0
-    },
-    "Build25": {
-        "Result": 14,
-        "Date": "20190210",
-        "PercentDeviation": 40.0
-    },
-    "Build26": {
-        "Result": 13,
-        "Date": "20190211",
-        "PercentDeviation": 30.0
-    },
-    "Build27": {
-        "Result": 15,
-        "Date": "20190212",
-        "PercentDeviation": 50.0
-    },
-    "Build28": {
         "Result": 12,
-        "Date": "20190213",
+        "Date": "20190205",
         "PercentDeviation": 20.0
     },
-    "Build29": {
+    "Build21": {
         "Result": 11,
-        "Date": "20190214",
+        "Date": "20190206",
         "PercentDeviation": 10.0
     },
+    "Build22": {
+        "Result": 14,
+        "Date": "20190207",
+        "PercentDeviation": 40.0
+    },
+    "Build23": {
+        "Result": 11,
+        "Date": "20190208",
+        "PercentDeviation": 10.0
+    },
+    "Build24": {
+        "Result": 7,
+        "Date": "20190209",
+        "PercentDeviation": 30.0
+    },
+    "Build25": {
+        "Result": 9,
+        "Date": "20190210",
+        "PercentDeviation": 10.0
+    },
+    "Build26": {
+        "Result": 14,
+        "Date": "20190211",
+        "PercentDeviation": 40.0
+    },
+    "Build27": {
+        "Result": 12,
+        "Date": "20190212",
+        "PercentDeviation": 20.0
+    },
+    "Build28": {
+        "Result": 9,
+        "Date": "20190213",
+        "PercentDeviation": 10.0
+    },
+    "Build29": {
+        "Result": 7,
+        "Date": "20190214",
+        "PercentDeviation": 30.0
+    },
     "Build30": {
-        "Result": 10,
+        "Result": 8,
         "Date": "20190215",
-        "PercentDeviation": 0.0
+        "PercentDeviation": 20.0
     },
     "Build31": {
         "Result": 11,
@@ -160,7 +160,7 @@
         "PercentDeviation": 10.0
     },
     "Build32": {
-        "Result": 11,
+        "Result": 9,
         "Date": "20190217",
         "PercentDeviation": 10.0
     },
@@ -170,69 +170,69 @@
         "PercentDeviation": 40.0
     },
     "Build34": {
-        "Result": 6,
-        "Date": "20190219",
-        "PercentDeviation": 40.0
-    },
-    "Build35": {
         "Result": 12,
-        "Date": "20190220",
+        "Date": "20190219",
         "PercentDeviation": 20.0
     },
-    "Build36": {
-        "Result": 7,
-        "Date": "20190221",
+    "Build35": {
+        "Result": 13,
+        "Date": "20190220",
         "PercentDeviation": 30.0
+    },
+    "Build36": {
+        "Result": 10,
+        "Date": "20190221",
+        "PercentDeviation": 0.0
     },
     "Build37": {
-        "Result": 13,
+        "Result": 12,
         "Date": "20190222",
-        "PercentDeviation": 30.0
+        "PercentDeviation": 20.0
     },
     "Build38": {
-        "Result": 14,
+        "Result": 8,
         "Date": "20190223",
-        "PercentDeviation": 40.0
+        "PercentDeviation": 20.0
     },
     "Build39": {
-        "Result": 7,
+        "Result": 6,
         "Date": "20190224",
-        "PercentDeviation": 30.0
+        "PercentDeviation": 40.0
     },
     "Build40": {
-        "Result": 14,
+        "Result": 6,
         "Date": "20190225",
         "PercentDeviation": 40.0
     },
     "Build41": {
-        "Result": 8,
+        "Result": 15,
         "Date": "20190226",
-        "PercentDeviation": 20.0
+        "PercentDeviation": 50.0
     },
     "Build42": {
-        "Result": 14,
+        "Result": 10,
         "Date": "20190227",
-        "PercentDeviation": 40.0
+        "PercentDeviation": 0.0
     },
     "Build43": {
-        "Result": 11,
+        "Result": 5,
         "Date": "20190228",
-        "PercentDeviation": 10.0
+        "PercentDeviation": 50.0
     },
     "Build44": {
-        "Result": 11,
+        "Result": 5,
         "Date": "20190301",
-        "PercentDeviation": 10.0
+        "PercentDeviation": 50.0
     },
     "Build45": {
-        "Result": 7,
+        "Result": 10,
         "Date": "20190302",
-        "PercentDeviation": 30.0
+        "PercentDeviation": 0.0
     },
     "Build46": {
-        "Result": 11,
+        "Result": 7,
         "Date": "20190303",
-        "PercentDeviation": 10.0
+        "PercentDeviation": 30.0
     },
     "Build47": {
         "Result": 14,
@@ -240,84 +240,84 @@
         "PercentDeviation": 40.0
     },
     "Build48": {
-        "Result": 5,
+        "Result": 6,
         "Date": "20190305",
-        "PercentDeviation": 50.0
+        "PercentDeviation": 40.0
     },
     "Build49": {
-        "Result": 14,
+        "Result": 9,
         "Date": "20190306",
-        "PercentDeviation": 40.0
-    },
-    "Build50": {
-        "Result": 6,
-        "Date": "20190307",
-        "PercentDeviation": 40.0
-    },
-    "Build51": {
-        "Result": 5,
-        "Date": "20190308",
-        "PercentDeviation": 50.0
-    },
-    "Build52": {
-        "Result": 11,
-        "Date": "20190309",
         "PercentDeviation": 10.0
     },
+    "Build50": {
+        "Result": 13,
+        "Date": "20190307",
+        "PercentDeviation": 30.0
+    },
+    "Build51": {
+        "Result": 12,
+        "Date": "20190308",
+        "PercentDeviation": 20.0
+    },
+    "Build52": {
+        "Result": 5,
+        "Date": "20190309",
+        "PercentDeviation": 50.0
+    },
     "Build53": {
-        "Result": 14,
+        "Result": 12,
         "Date": "20190310",
-        "PercentDeviation": 40.0
+        "PercentDeviation": 20.0
     },
     "Build54": {
-        "Result": 12,
+        "Result": 8,
         "Date": "20190311",
         "PercentDeviation": 20.0
     },
     "Build55": {
-        "Result": 15,
+        "Result": 10,
         "Date": "20190312",
-        "PercentDeviation": 50.0
+        "PercentDeviation": 0.0
     },
     "Build56": {
-        "Result": 13,
+        "Result": 6,
         "Date": "20190313",
-        "PercentDeviation": 30.0
+        "PercentDeviation": 40.0
     },
     "Build57": {
-        "Result": 9,
+        "Result": 14,
         "Date": "20190314",
-        "PercentDeviation": 10.0
+        "PercentDeviation": 40.0
     },
     "Build58": {
-        "Result": 10,
+        "Result": 8,
         "Date": "20190315",
-        "PercentDeviation": 0.0
+        "PercentDeviation": 20.0
     },
     "Build59": {
-        "Result": 7,
-        "Date": "20190316",
-        "PercentDeviation": 30.0
-    },
-    "Build60": {
-        "Result": 10,
-        "Date": "20190317",
-        "PercentDeviation": 0.0
-    },
-    "Build61": {
         "Result": 11,
-        "Date": "20190318",
+        "Date": "20190316",
         "PercentDeviation": 10.0
     },
+    "Build60": {
+        "Result": 11,
+        "Date": "20190317",
+        "PercentDeviation": 10.0
+    },
+    "Build61": {
+        "Result": 7,
+        "Date": "20190318",
+        "PercentDeviation": 30.0
+    },
     "Build62": {
-        "Result": 9,
+        "Result": 11,
         "Date": "20190319",
         "PercentDeviation": 10.0
     },
     "Build63": {
-        "Result": 14,
+        "Result": 10,
         "Date": "20190320",
-        "PercentDeviation": 40.0
+        "PercentDeviation": 0.0
     },
     "Build64": {
         "Result": 9,
@@ -325,94 +325,94 @@
         "PercentDeviation": 10.0
     },
     "Build65": {
-        "Result": 11,
+        "Result": 12,
         "Date": "20190322",
-        "PercentDeviation": 10.0
+        "PercentDeviation": 20.0
     },
     "Build66": {
-        "Result": 12,
+        "Result": 8,
         "Date": "20190323",
         "PercentDeviation": 20.0
     },
     "Build67": {
-        "Result": 9,
+        "Result": 7,
         "Date": "20190324",
-        "PercentDeviation": 10.0
+        "PercentDeviation": 30.0
     },
     "Build68": {
-        "Result": 6,
+        "Result": 5,
         "Date": "20190325",
-        "PercentDeviation": 40.0
+        "PercentDeviation": 50.0
     },
     "Build69": {
-        "Result": 14,
+        "Result": 6,
         "Date": "20190326",
         "PercentDeviation": 40.0
     },
     "Build70": {
-        "Result": 10,
+        "Result": 7,
         "Date": "20190327",
-        "PercentDeviation": 0.0
+        "PercentDeviation": 30.0
     },
     "Build71": {
-        "Result": 5,
+        "Result": 12,
         "Date": "20190328",
-        "PercentDeviation": 50.0
+        "PercentDeviation": 20.0
     },
     "Build72": {
-        "Result": 14,
+        "Result": 12,
         "Date": "20190329",
-        "PercentDeviation": 40.0
+        "PercentDeviation": 20.0
     },
     "Build73": {
-        "Result": 11,
+        "Result": 9,
         "Date": "20190330",
         "PercentDeviation": 10.0
     },
     "Build74": {
-        "Result": 13,
+        "Result": 6,
         "Date": "20190331",
-        "PercentDeviation": 30.0
+        "PercentDeviation": 40.0
     },
     "Build75": {
-        "Result": 15,
+        "Result": 9,
         "Date": "20190401",
-        "PercentDeviation": 50.0
+        "PercentDeviation": 10.0
     },
     "Build76": {
-        "Result": 13,
+        "Result": 10,
         "Date": "20190402",
-        "PercentDeviation": 30.0
+        "PercentDeviation": 0.0
     },
     "Build77": {
-        "Result": 7,
+        "Result": 9,
         "Date": "20190403",
-        "PercentDeviation": 30.0
+        "PercentDeviation": 10.0
     },
     "Build78": {
-        "Result": 14,
+        "Result": 9,
         "Date": "20190404",
-        "PercentDeviation": 40.0
+        "PercentDeviation": 10.0
     },
     "Build79": {
-        "Result": 14,
+        "Result": 12,
         "Date": "20190405",
-        "PercentDeviation": 40.0
+        "PercentDeviation": 20.0
     },
     "Build80": {
-        "Result": 15,
-        "Date": "20190406",
-        "PercentDeviation": 50.0
-    },
-    "Build81": {
         "Result": 6,
-        "Date": "20190407",
+        "Date": "20190406",
         "PercentDeviation": 40.0
     },
-    "Build82": {
-        "Result": 7,
-        "Date": "20190408",
+    "Build81": {
+        "Result": 13,
+        "Date": "20190407",
         "PercentDeviation": 30.0
+    },
+    "Build82": {
+        "Result": 14,
+        "Date": "20190408",
+        "PercentDeviation": 40.0
     },
     "Build83": {
         "Result": 5,
@@ -420,9 +420,9 @@
         "PercentDeviation": 50.0
     },
     "Build84": {
-        "Result": 9,
+        "Result": 6,
         "Date": "20190410",
-        "PercentDeviation": 10.0
+        "PercentDeviation": 40.0
     },
     "Build85": {
         "Result": 8,
@@ -430,39 +430,39 @@
         "PercentDeviation": 20.0
     },
     "Build86": {
-        "Result": 6,
-        "Date": "20190412",
-        "PercentDeviation": 40.0
-    },
-    "Build87": {
-        "Result": 15,
-        "Date": "20190413",
-        "PercentDeviation": 50.0
-    },
-    "Build88": {
-        "Result": 6,
-        "Date": "20190414",
-        "PercentDeviation": 40.0
-    },
-    "Build89": {
-        "Result": 6,
-        "Date": "20190415",
-        "PercentDeviation": 40.0
-    },
-    "Build90": {
-        "Result": 6,
-        "Date": "20190416",
-        "PercentDeviation": 40.0
-    },
-    "Build91": {
         "Result": 13,
-        "Date": "20190417",
+        "Date": "20190412",
         "PercentDeviation": 30.0
     },
-    "Build92": {
-        "Result": 11,
-        "Date": "20190418",
+    "Build87": {
+        "Result": 6,
+        "Date": "20190413",
+        "PercentDeviation": 40.0
+    },
+    "Build88": {
+        "Result": 9,
+        "Date": "20190414",
         "PercentDeviation": 10.0
+    },
+    "Build89": {
+        "Result": 11,
+        "Date": "20190415",
+        "PercentDeviation": 10.0
+    },
+    "Build90": {
+        "Result": 15,
+        "Date": "20190416",
+        "PercentDeviation": 50.0
+    },
+    "Build91": {
+        "Result": 6,
+        "Date": "20190417",
+        "PercentDeviation": 40.0
+    },
+    "Build92": {
+        "Result": 13,
+        "Date": "20190418",
+        "PercentDeviation": 30.0
     },
     "Build93": {
         "Result": 9,
@@ -475,28 +475,28 @@
         "PercentDeviation": 50.0
     },
     "Build95": {
-        "Result": 10,
-        "Date": "20190421",
-        "PercentDeviation": 0.0
-    },
-    "Build96": {
         "Result": 5,
-        "Date": "20190422",
+        "Date": "20190421",
         "PercentDeviation": 50.0
     },
+    "Build96": {
+        "Result": 6,
+        "Date": "20190422",
+        "PercentDeviation": 40.0
+    },
     "Build97": {
-        "Result": 8,
+        "Result": 12,
         "Date": "20190423",
         "PercentDeviation": 20.0
     },
     "Build98": {
-        "Result": 10,
+        "Result": 12,
         "Date": "20190424",
-        "PercentDeviation": 0.0
+        "PercentDeviation": 20.0
     },
     "Build99": {
-        "Result": 5,
+        "Result": 6,
         "Date": "20190425",
-        "PercentDeviation": 50.0
+        "PercentDeviation": 40.0
     }
 }

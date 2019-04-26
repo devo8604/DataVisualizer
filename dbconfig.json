@@ -1,0 +1,6 @@
+{
+    "dbHost": "localhost",
+    "dbUser": "dsmith",
+    "dbUserPass": "QWer!@34",
+    "dbTable": "dataPlot"
+}

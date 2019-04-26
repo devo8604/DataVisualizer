@@ -11,12 +11,6 @@ import json
 from datetime import timedelta, datetime, date
 import pymysql
 
-# Global Variables for DB access
-dbHost = "localhost"
-dbUSer = "dsmith"
-dbUserPass = "QWer!@34"
-dbTable = "dataPlot"
-
 # =============================================================================
 
 
@@ -51,7 +45,7 @@ def dataToJson(rData):
 # =============================================================================
 
 
-def createDbTable():
+def createDbTable(host, user, passwd, table):
     """Sends the data to a DB
 
     To start mariaDB on Mac, use 'mysql.server start'
@@ -65,7 +59,7 @@ def createDbTable():
         percent_deviation FLOAT NOT NULL,
         PRIMARY KEY ( id ) )"""
     try:
-        db = pymysql.connect(dbHost, dbUSer, dbUserPass, dbTable)
+        db = pymysql.connect(host, user, passwd, table)
     except:
         print("Did you remember to start the DB service?")
     else:
@@ -78,41 +72,41 @@ def createDbTable():
 # =============================================================================
 
 
-def insertTableData(rData):
+def insertTableData(rData, host, user, passwd, table):
     """Inserts data into the testData table"""
 
     try:
-        db = pymysql.connect(dbHost, dbUSer, dbUserPass, dbTable)
+        db = pymysql.connect(host, user, passwd, table)
     except:
         print("Did you remember to start the DB service?")
-
+        exit(1)
+    else:
         cursor = db.cursor()
-    for x in range(len(rData)):
-        try:
-            cursor.execute("""INSERT INTO testdata (result,
-                                build_date,
-                                percent_deviation) VALUES
-                                ({result},
-                                {build_date},
-                                {percent_deviation})""".format(result=rData["Build" +
-                                                                            str(x)]["Result"],
-                                                               build_date=rData["Build" +
-                                                                                str(x)]["Date"],
-                                                               percent_deviation=rData["Build" + str(x)]["PercentDeviation"]))
-            db.commit()
+        for x in range(len(rData)):
+            try:
+                cursor.execute("""INSERT INTO testdata (result,
+                                    build_date,
+                                    percent_deviation) VALUES
+                                    ({result},
+                                    {build_date},
+                                    {percent_deviation})""".format(result=rData["Build" +
+                                                                                str(x)]["Result"],
+                                                                   build_date=rData["Build" +
+                                                                                    str(x)]["Date"],
+                                                                   percent_deviation=rData["Build" + str(x)]["PercentDeviation"]))
 
-        except:
-            print("Something doesn't feel right, rolling back the DB...")
-            db.rollback()
+            except:
+                print("Something doesn't feel right, rolling back the DB...")
+                db.rollback()
 
     db.close()
 
 # =============================================================================
 
 
-def retrieveData(resultsDict):
+def retrieveData(resultsDict, host, user, passwd, table):
     """Retrive all of the data from the table"""
-    db = pymysql.connect(dbHost, dbUSer, dbUserPass, dbTable)
+    db = pymysql.connect(host, user, passwd, table)
     cursor = db.cursor()
 
     cursor.execute("SELECT * FROM testdata")
@@ -130,14 +124,24 @@ def retrieveData(resultsDict):
 
 
 def main():
-    dataDict = {}
+    try:
+        with open('dbconfig.json') as config:
+            data = json.load(config)
+            dbHost = data["dbHost"]
+            dbUser = data["dbUser"]
+            dbUserPass = data["dbUserPass"]
+            dbTable = data["dbTable"]
+    except IOError as e:
+        print(e)
+    else:
+        dataDict = {}
 
-    dataGen(dataDict)
-    dataToJson(dataDict)
-    createDbTable()
-    insertTableData(dataDict)
-    retrieveData(dataDict)
-    print(dataDict)
+        dataGen(dataDict)
+        dataToJson(dataDict)
+        createDbTable(dbHost, dbUser, dbUserPass, dbTable)
+        insertTableData(dataDict, dbHost, dbUser, dbUserPass, dbTable)
+        retrieveData(dataDict, dbHost, dbUser, dbUserPass, dbTable)
+        # print(dataDict)
 
 # =============================================================================
 
