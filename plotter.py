@@ -78,6 +78,8 @@ def getDataDb():
 
     plotBuilder(dateArr, deviationArr)
 
+    dbinfo.close()
+
 # =============================================================================
 
 
