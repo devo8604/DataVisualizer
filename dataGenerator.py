@@ -14,10 +14,11 @@ import pymysql
 # =============================================================================
 
 
-def dataGen(rData):
+def dataGen():
     """Generates Random Data"""
     CONTROL = 10
     randDate = (date.today() - (timedelta(days=100)))
+    rData = {}
 
     # Generates 100 items
     for x in range(100):
@@ -29,6 +30,8 @@ def dataGen(rData):
         rData.update({"Build" + str(x): {"Result": randResult,
                                          "Date": datetime.strftime(randDate, '%Y%m%d'),
                                          "PercentDeviation": deviationCalc}})
+
+    return rData
 
 # =============================================================================
 
@@ -45,7 +48,7 @@ def dataToJson(rData):
 # =============================================================================
 
 
-def createDbTable(host, user, passwd, table):
+def createDbTable(db):
     """Sends the data to a DB
 
     To start mariaDB on Mac, use 'mysql.server start'
@@ -58,56 +61,43 @@ def createDbTable(host, user, passwd, table):
         build_date TEXT,
         percent_deviation FLOAT NOT NULL,
         PRIMARY KEY ( id ) )"""
-    try:
-        db = pymysql.connect(host, user, passwd, table)
-    except:
-        print("Did you remember to start the DB service?")
-    else:
-        cursor = db.cursor()
-        cursor.execute("DROP TABLE IF EXISTS testdata")
-        cursor.execute(testDataTable)
-        db.commit()
-        db.close()
+
+    cursor = db.cursor()
+    cursor.execute("DROP TABLE IF EXISTS testdata")
+    cursor.execute(testDataTable)
+    db.commit()
 
 # =============================================================================
 
 
-def insertTableData(rData, host, user, passwd, table):
+def insertTableData(db, rData):
     """Inserts data into the testData table"""
 
-    try:
-        db = pymysql.connect(host, user, passwd, table)
-    except:
-        print("Did you remember to start the DB service?")
-        exit(1)
-    else:
-        cursor = db.cursor()
-        for x in range(len(rData)):
-            try:
-                cursor.execute("""INSERT INTO testdata (result,
-                                    build_date,
-                                    percent_deviation) VALUES
-                                    ({result},
-                                    {build_date},
-                                    {percent_deviation})""".format(result=rData["Build" +
-                                                                                str(x)]["Result"],
-                                                                   build_date=rData["Build" +
-                                                                                    str(x)]["Date"],
-                                                                   percent_deviation=rData["Build" + str(x)]["PercentDeviation"]))
+    # SQL Statement
+    sql = "INSERT INTO testdata (`result`, `build_date`, `percent_deviation`) VALUES (%s, %s, %s)"
 
-            except:
-                print("Something doesn't feel right, rolling back the DB...")
-                db.rollback()
+    cursor = db.cursor()
+    for x in range(len(rData)):
+        try:
+            cursor.execute(sql, (rData["Build" +
+                                       str(x)]["Result"],
+                                 rData["Build" +
+                                       str(x)]["Date"],
+                                 rData["Build" + str(x)]["PercentDeviation"]))
 
-    db.close()
+            db.commit()
+        except:
+            print("Something doesn't feel right, rolling back the DB...")
+            db.rollback()
 
 # =============================================================================
 
 
-def retrieveData(resultsDict, host, user, passwd, table):
+def retrieveData(db):
     """Retrive all of the data from the table"""
-    db = pymysql.connect(host, user, passwd, table)
+
     cursor = db.cursor()
+    resultsDict = {}
 
     cursor.execute("SELECT * FROM testdata")
     row = cursor.fetchone()
@@ -118,7 +108,7 @@ def retrieveData(resultsDict, host, user, passwd, table):
                                           "PercentDeviation": row[3]}})
         row = cursor.fetchone()
 
-    db.close()
+    return resultsDict
 
 # =============================================================================
 
@@ -134,14 +124,18 @@ def main():
     except IOError as e:
         print(e)
     else:
-        dataDict = {}
 
-        dataGen(dataDict)
-        dataToJson(dataDict)
-        createDbTable(dbHost, dbUser, dbUserPass, dbTable)
-        insertTableData(dataDict, dbHost, dbUser, dbUserPass, dbTable)
-        retrieveData(dataDict, dbHost, dbUser, dbUserPass, dbTable)
-        # print(dataDict)
+        # Database Object
+        dbinfo = pymysql.connect(dbHost, dbUser, dbUserPass, dbTable)
+
+        genDict = dataGen()
+        dataToJson(genDict)
+
+        createDbTable(dbinfo)
+        insertTableData(dbinfo, genDict)
+        # dbDict = retrieveData(dbHost, dbUser, dbUserPass, dbTable)
+
+        dbinfo.close()
 
 # =============================================================================
 

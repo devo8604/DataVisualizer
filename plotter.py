@@ -10,21 +10,21 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from datetime import datetime
 import json
+import pymysql
 
 # Custom Modules
 import dataGenerator
-
-# Global Variable List
-dataDict = {}
-resultArr = []
-deviationArr = []
-dateArr = []
 
 # =============================================================================
 
 
 def getDataJson():
     """Read the JSON data into dataDict"""
+
+    resultArr = []
+    deviationArr = []
+    dateArr = []
+
     try:
         with open('dataPoints.json', 'r') as json_file:
             dataDict = json.load(json_file)
@@ -43,11 +43,17 @@ def getDataJson():
     # Dont need this anymore, set the mem free...
     dataDict.clear()
 
+    plotBuilder(dateArr, deviationArr)
+
 # =============================================================================
 
 
 def getDataDb():
     """Calls the dataGenerator Module to get data from DB"""
+    resultArr = []
+    deviationArr = []
+    dateArr = []
+
     try:
         with open('dbconfig.json') as config:
             data = json.load(config)
@@ -58,8 +64,9 @@ def getDataDb():
     except IOError as e:
         print(e)
     else:
-        dataGenerator.retrieveData(
-            dataDict, dbHost, dbUser, dbUserPass, dbTable)
+        dbinfo = pymysql.connect(dbHost, dbUser, dbUserPass, dbTable)
+
+        dataDict = dataGenerator.retrieveData(dbinfo)
 
     # Iterates through dict and assigns the elements to the proper array for plot
         for x in range(len(dataDict)):
@@ -69,10 +76,12 @@ def getDataDb():
                 dataDict[str(x+1)]["Date"], '%Y%m%d'))
             deviationArr.append(dataDict[str(x+1)]["PercentDeviation"])
 
+    plotBuilder(dateArr, deviationArr)
+
 # =============================================================================
 
 
-def plotBuilder():
+def plotBuilder(dateArr, deviationArr):
     """Builds the plot"""
     # Plot Builder
     days = mdates.DayLocator()
@@ -97,8 +106,8 @@ def plotBuilder():
 
 
 def main():
-    getDataJson()
-    plotBuilder()
+    # getDataJson()
+    getDataDb()
 
 # =============================================================================
 
